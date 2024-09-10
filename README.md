@@ -21,3 +21,23 @@ ACCOUNT_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP_NAME
 # Create blob container
 az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --account-key $ACCOUNT_KEY
 ```
+
+- Setup Azure for Terraform Deployment
+To deploy Terraform infrastructure on Azure, you'll need to set up the following:
+
+A. Create Azure Service Principal and Credentials
+Run the following command in the Azure CLI to create a service principal with contributor access to your subscription:
+```
+az ad sp create-for-rbac --name "my-terraform-pipeline" --role Contributor --scopes /subscriptions/YOUR_SUBSCRIPTION_ID --sdk-auth
+```
+This command will output a JSON object with the necessary credentials: clientId, clientSecret, subscriptionId, tenantId, etc.
+Add Credentials to GitHub Secrets:
+
+Go to your GitHub repository settings -> Secrets -> Actions.
+Add the credentials as secrets:
+```
+AZURE_CLIENT_ID
+AZURE_CLIENT_SECRET
+AZURE_SUBSCRIPTION_ID
+AZURE_TENANT_ID
+```
