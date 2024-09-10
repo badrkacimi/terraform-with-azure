@@ -1,4 +1,4 @@
-# Terraform Azure Static Site
+# Terraform(IaC) Azure Infra for Static Site + Github actions for CICD 
 
 Hosting static site content in Azure Storage and usign Terraform as IaC tool to deploy it.
 
