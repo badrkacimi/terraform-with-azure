@@ -5,9 +5,9 @@ Hosting static site content in Azure Storage and usign Terraform as IaC tool to 
 - Azure cli commands to create the **remote backend** for terraform statefile.
 
 ```
-RESOURCE_GROUP_NAME= write yours
-STORAGE_ACCOUNT_NAME= write yours
-CONTAINER_NAME= write yours
+export RESOURCE_GROUP_NAME= <your_rsg_name>
+export STORAGE_ACCOUNT_NAME=<your_storage_name>
+export CONTAINER_NAME=<your_container_name>
 
 # Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
